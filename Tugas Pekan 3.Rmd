@@ -129,7 +129,7 @@ mape.dlm
 GoF(model.dlm)
 ```
 
-### *Lag* Optimum
+### Lag Optimum
 
 ```{r}
 #penentuan lag optimum 
