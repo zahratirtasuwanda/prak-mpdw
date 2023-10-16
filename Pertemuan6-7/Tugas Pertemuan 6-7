@@ -144,30 +144,45 @@ coeftest(model1.da)
 
 Pada ARIMA(0,1,3) didapatkan nilai AIC sebesar 1441.06  dan 1 dari 3 parameter signifikan.
 
-## ARIMA(1,1,3) atau ARMA(1,3)
+## ARIMA(1,1,2) atau ARMA(1,2)
 ```{r}
-model2.da = Arima(train.diff,order=c(1,1,3),method = "ML")
+model2.da = Arima(train.diff,order=c(1,1,2),method = "ML")
 summary(model2.da) 
 coeftest(model2.da)
 ```
-Pada ARIMA(1,1,3) didapatkan nilai AIC sebesar 1443.05 dan tidak ada parameter yang signifikan.
-
-## ARIMA(2,1,2) atau ARMA(2,2)
-```{r}
-model3.da = Arima(train.diff,order=c(2,1,2),method = "ML")
-summary(model3.da) 
-coeftest(model3.da)
-```
-Pada ARIMA(2,1,2) didapatkan nilai AIC sebesar 1443.17 dan tidak ada parameter signifikan.
+Pada ARIMA(1,1,2) didapatkan nilai AIC sebesar 1443.2  dan 2 dari 3 parameter signifikan
 
 ## ARIMA(2,1,3) atau ARMA(2,3)
 ```{r}
-model4.da = Arima(train.diff,order=c(2,1,3),method = "ML")
+model3.da = Arima(train.diff,order=c(2,1,3),method = "ML")
+summary(model3.da) 
+coeftest(model3.da)
+```
+Pada ARIMA(2,1,3) didapatkan nilai AIC sebesar 1444.59 dan 2 dari 5 parameter signifikan.
+
+## ARIMA(2,1,5) atau ARMA(2,5)
+```{r}
+model4.da = Arima(train.diff,order=c(2,1,5),method = "ML")
 summary(model4.da) 
 coeftest(model4.da)
 ```
+Pada ARIMA(2,1,5) didapatkan nilai AIC sebesar 1442.13 dan 5 dari 7 parameter signifikan
 
-Berdasarkan perhitungan di atas, dapat disimpulkan bahwa ARIMA(0,1,3) atau MA(3) merupakan model terbaik.
-Pada ARIMA(2,1,2) didapatkan nilai AIC sebesar 1444.59 dan 2 dari 4 parameter signifikan.
+## ARIMA(2,1,3) atau ARMA(2,5)
+```{r}
+model5.da = Arima(train.diff,order=c(3,1,4),method = "ML")
+summary(model5.da) 
+coeftest(model5.da)
+```
+Pada ARIMA(3,1,4) didapatkan nilai AIC sebesar 1444.04  dan 4 dari 7 parameter signifikan
+
+## ARIMA(6,1,7) atau ARMA(6,7)
+```{r}
+model6.da = Arima(train.diff,order=c(6,1,7),method = "ML")
+summary(model6.da) 
+coeftest(model6.da)
 ```
 
+Pada ARIMA(6,1,7) didapatkan nilai AIC sebesar 1446.26  dan 13 dari 13 parameter signifikan
+
+Berdasarkan pendugaan parameter di atas, nilai AIC terkecil dimiliki oleh model ARIMA(0,1,3) tetapi tidak seluruhnya signifikan. Parameter yang seluruhnya signfikan dimiliki oleh model ARIMA(6,1,7) dengan AIC 1446.25. Sehingga model yang dipilih adalah model ARIMA(6,1,7).
